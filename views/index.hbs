@@ -6,6 +6,32 @@
   </head>
   <body>
     <h1>{{title}}</h1>
-    <p>Welcome to {{title}}</p>
+    <section class="submitlink">
+  <form action="/add-link" method="post">
+    <div>
+    <input type="text" name="url" value="">
+  </div>
+  </form>
+</section>
+<section class="submitlink">
+  <form action="/add-link" method="post">
+    <div>
+    <input type="text" name="title" value="">
+  </div>
+  <button>submit</button>
+  </form>
+</section>
+<main>
+  {{#each data}}
+  <form class= "up" action="/upvote/{{this.id}}" method="post">
+    <button>-U-</button>
+</form>
+  <span class="votes">{{this.votes}}</span>
+  <form class= "up" action="/downvote/{{this.id}}" method="post">
+    <button>-D-</button>
+</form>
+  <span class="title"><a href="{{this.url}}"></a></span>
+{{/each}}
+</main>
   </body>
 </html>
